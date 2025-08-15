@@ -76,7 +76,7 @@ app.post('/api/persons/', (req, res) => {
       return
     }
 
-    newEntry.id = Math.floor((Math.random() * 9999999999) + 1); 
+    newEntry.id = JSON.stringify(Math.floor((Math.random() * 9999999999) + 1)) 
 
     if(data.find(entry => newEntry.id === entry.id))
     {
