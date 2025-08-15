@@ -64,7 +64,7 @@ app.delete('/api/persons/:id', (req, res) => {
 app.post('/api/persons/', (req, res) => {
     const newEntry = req.body
 
-    if(JSON.stringify(Object.keys(newEntry)) !== JSON.stringify(['name', 'number']))
+    if(JSON.stringify(Object.keys(newEntry)) !== JSON.stringify(['name', 'number', 'id']))
     {
       res.status(400).end()
       return
@@ -75,8 +75,6 @@ app.post('/api/persons/', (req, res) => {
       res.status(400).end()
       return
     }
-
-    newEntry.id = Math.floor((Math.random() * 9999999999) + 1); 
 
     if(data.find(entry => newEntry.id === entry.id))
     {
